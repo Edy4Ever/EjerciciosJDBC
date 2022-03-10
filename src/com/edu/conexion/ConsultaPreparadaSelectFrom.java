@@ -29,5 +29,4 @@ public class ConsultaPreparadaSelectFrom {
 			e.printStackTrace();
 		}
 	}
-
 }
