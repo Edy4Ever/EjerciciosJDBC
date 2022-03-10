@@ -13,7 +13,7 @@ public class UpdateDDBB {
 
 			Statement myStatement = myConnection.createStatement();
 
-			String SqlInstruction = "UPDATE datos SET Edad=60 WHERE Nombre='Eugenio'";
+			String SqlInstruction = "UPDATE datos SET Edad=3 WHERE Nombre='Sebastián'";
 			
 			int filaAfectada = myStatement.executeUpdate(SqlInstruction);
 			
