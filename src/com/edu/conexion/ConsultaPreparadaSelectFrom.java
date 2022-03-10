@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 public class ConsultaPreparadaSelectFrom {
 
@@ -14,9 +15,16 @@ public class ConsultaPreparadaSelectFrom {
 			// PreparedStatement myPreparedStatement = myConnection.prepareStatement("SELECT
 			// * FROM datos WHERE Apellido_Paterno=? ");
 			PreparedStatement myPreparedStatement = myConnection
-					.prepareStatement("SELECT Nombre, Edad FROM datos WHERE Apellido_Paterno=? ");
+					.prepareStatement("SELECT * FROM datos WHERE Apellido_Materno=? ");
 
-			myPreparedStatement.setString(1, "De la cruz");
+			System.out.print("Introduzca el apellido a buscar: ");
+			Scanner myScan = new Scanner(System.in);
+			
+			String apellido = myScan.nextLine();
+			
+			myPreparedStatement.setString(1, apellido);
+			
+			//myPreparedStatement.setString(1, "De la cruz");
 			// myPreparedStatement.setString(2, "3");
 			ResultSet myResultSet = myPreparedStatement.executeQuery();
 
@@ -24,6 +32,8 @@ public class ConsultaPreparadaSelectFrom {
 				System.out.println("Nombre: " + myResultSet.getString(1) + " - " + " Apellido Paterno: "
 						+ myResultSet.getString(2) + " - " + " Edad: " + myResultSet.getString(4));
 			}
+			
+			myScan.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
